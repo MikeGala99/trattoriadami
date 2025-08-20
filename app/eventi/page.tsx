@@ -10,28 +10,28 @@ import Link from "next/link";
 const events = [
   {
     title: "CENE AZIENDALI",
-    img: "/img/event-placeholder-1.jpg",
+    img: "/images/heroimage.webp",
     text:
       "Per la vostra cena aziendale scegliete un luogo dove il lavoro incontra la buona cucina e l’accoglienza autentica. Da Damì si lavora meglio… a tavola!",
     color: "bg-[#650602]",
   },
   {
     title: "MATRIMONI",
-    img: "/img/event-placeholder-2.jpg",
+    img: "/images/matrimonio3.webp",
     text:
       "Un giorno così speciale merita un luogo altrettanto speciale. Alla Trattoria Damì accogliamo il vostro matrimonio con calore, semplicità e tanta bellezza.",
     color: "bg-[#6e5c50]",
   },
   {
     title: "BATTESIMI, COMUNIONI E CRESIME",
-    img: "/img/event-placeholder-3.jpg",
+    img: "/images/compleanni.webp",
     text:
       "Per le prime tappe importanti della vita ci vuole un luogo che profumi di famiglia. Damì è la scelta giusta per celebrare con gusto e semplicità.",
     color: "bg-[#6e5c50]",
   },
   {
     title: "COMPLEANNI,  LAUREE ED EVENTI",
-    img: "/img/event-placeholder-4.jpg",
+    img: "/images/battesimo1.webp",
     text:
       "Qualsiasi sia la vostra occasione speciale, da Damì la festa prende vita tra sapori genuini, risate e un’atmosfera familiare che scalda il cuore.",
     color: "bg-[#650602]",
@@ -44,10 +44,11 @@ export default function EventsSection() {
       {/* banner orizzontale sopra la sezione – immagine fissa */}
       <div className="w-full h-40 md:h-52 lg:h-64 overflow-hidden">
         <img
-          src="/img/events-banner.jpg"
-          alt="Festa alla Trattoria Damì"
-          className="h-full w-full object-cover"
-        />
+  src="/images/eventi.webp"
+  alt="Festa alla Trattoria Damì"
+  className="h-full w-full object-cover object-top"
+/>
+
       </div>
 
       {/* intro testo */}
@@ -94,7 +95,7 @@ export default function EventsSection() {
 
               <div className="mt-auto space-y-3">
                 <Link
-                  href="#contatti"
+                  href="/contatti-e-orari"
                   className="
                     block w-full rounded
                     bg-[#f1ede0] text-[#6e5c50]
@@ -105,7 +106,7 @@ export default function EventsSection() {
                   + INFORMAZIONI
                 </Link>
                 <Link
-                  href="#prenota"
+                  href="tel:+39054297863"
                   className="
                     block w-full rounded
                     bg-[#c2953e] text-[#6e5c50]

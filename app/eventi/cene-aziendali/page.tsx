@@ -1,15 +1,23 @@
-
 "use client";
 
 import React from "react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-/* gallery placeholder */
 const gallery = [
-  "/img/azienda-1.jpg",
-  "/img/azienda-2.jpg",
-  "/img/azienda-3.jpg",
+  "/images/cenaaziendale.webp",
+  "/images/cenaaziendale2.webp",
+  "/images/dami3.webp",
+  "/images/cameriere.webp",
+  "/images/cene.webp",
+  "/images/cene1.webp",
+  "/images/cene2.webp",
+  "/images/cene3.webp",
+  "/images/cene4.webp",
 ];
 
 export default function BusinessDinnersSection() {
@@ -22,36 +30,23 @@ export default function BusinessDinnersSection() {
             CENE AZIENDALI
           </h2>
 
-          <p className="[font-family:'Lora',Helvetica] text-sm sm:text-base leading-relaxed">
-            Siete un team affiatato o un gruppo appena formato? In ogni caso,
-            qui troverete l’atmosfera giusta per rilassarvi, conoscervi meglio e
-            gustare una cena che mette d’accordo tutti. Proponiamo menù su
-            misura, pizze cotte nel forno a legna e piatti della tradizione
-            tosco-emiliana. Ampi spazi e possibilità di riservare sale vi
-            permettono di vivere la serata con riservatezza. E se la serata si
-            fa lunga… abbiamo anche camere comode per il pernottamento.
-          </p>
+          <div className="max-w-2xl mx-auto text-center">
+  <p className="[font-family:'Lora',Helvetica] text-sm sm:text-base leading-relaxed">
+    Compleanni, feste di laurea o semplicemente voglia di stare insieme: ogni scusa è buona per fare festa da noi. Potete scegliere tra il nostro giardino estivo e le sale interne, allestite secondo i vostri desideri. Offriamo menù flessibili, pizza a volontà, vini locali e tutta la gioia che si respira in una vera trattoria di confine. Musica, decorazioni, torta: pensiamo a tutto insieme a voi. Voi portate la voglia di festeggiare, noi ci mettiamo il resto.
+  </p>
+</div>
+
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="#menu"
-              className="
-                inline-block rounded
-                bg-[#d9d9d9] text-[#6e5c50]
-                px-8 py-3 text-sm font-semibold
-                hover:bg-[#e5e5e5] transition
-              "
+              href="/menu"
+              className="inline-block rounded bg-[#d9d9d9] text-[#6e5c50] px-8 py-3 text-sm font-semibold hover:bg-[#e5e5e5] transition"
             >
               VEDI MENU
             </Link>
             <Link
-              href="#prenota"
-              className="
-                inline-block rounded
-                bg-[#d9d9d9] text-[#6e5c50]
-                px-8 py-3 text-sm font-semibold
-                hover:bg-[#e5e5e5] transition
-              "
+              href="tel:+39054297863"
+              className="inline-block rounded bg-[#d9d9d9] text-[#6e5c50] px-8 py-3 text-sm font-semibold hover:bg-[#e5e5e5] transition"
             >
               PRENOTA
             </Link>
@@ -66,62 +61,32 @@ export default function BusinessDinnersSection() {
         </h3>
       </div>
 
-      {/* griglia / slider semplice */}
-      <div className="relative">
-        <div
-          className="
-            container mx-auto max-w-screen-xl px-6
-            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6
-          "
+      {/* swiper gallery */}
+      <div className="container mx-auto max-w-screen-xl px-6 pb-16">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="[--swiper-navigation-color:#fff] [--swiper-pagination-color:#fff]"
         >
           {gallery.map((src, i) => (
-            <div
-              key={i}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg shadow"
-            >
-              <img
-                src={src}
-                alt={`Foto cena aziendale ${i + 1}`}
-                className="h-full w-full object-cover"
-              />
-              {/* cerchio freccia decorativo */}
-              <span
-                className="
-                  absolute inset-0 m-auto
-                  flex h-12 w-12 items-center justify-center
-                  rounded-full border border-white/80
-                  bg-white/10 backdrop-blur-[2px]
-                "
-              >
-                <ChevronRight className="h-5 w-5 text-white" />
-              </span>
-            </div>
+            <SwiperSlide key={i}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow">
+                <img
+                  src={src}
+                  alt={`Foto cena aziendale ${i + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
-
-        {/* frecce desktop (decorative) */}
-        <button
-          aria-label="scorri indietro"
-          className="
-            hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2
-            h-12 w-12 items-center justify-center
-            rounded-full bg-[#6e5c50] text-[#f1ede0]
-            hover:bg-[#7b6b5f] transition
-          "
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        <button
-          aria-label="scorri avanti"
-          className="
-            hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2
-            h-12 w-12 items-center justify-center
-            rounded-full bg-[#6e5c50] text-[#f1ede0]
-            hover:bg-[#7b6b5f] transition
-          "
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
+        </Swiper>
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ export default function ContactHours() {
         {/* foto trattoria */}
         <div className="w-full h-72 md:h-auto rounded-lg overflow-hidden shadow">
           <img
-            src="/img/trattoria-esterno.jpg" /* sostituisci con la tua foto */
+            src="/images/contattidami.webp" /* sostituisci con la tua foto */
             alt="Trattoria Damì"
             className="h-full w-full object-cover"
           />
@@ -53,12 +53,12 @@ export default function ContactHours() {
             <Item
               icon={<Facebook className="h-4 w-4" />}
               label="Trattoria Damì"
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/trattoriadamiitalia"
             />
             <Item
               icon={<Instagram className="h-4 w-4" />}
               label="@trattoriadamitalia"
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/trattoriadamiitalia/"
             />
           </div>
 
@@ -71,17 +71,18 @@ export default function ContactHours() {
 
       {/* mappa embed */}
       <div className="w-full h-[400px] lg:h-[500px]">
-        <iframe
-          title="Mappa Trattoria Damì"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.4713512854355!2d11.433927476572603!3d44.20823887290445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cce3333673c33%3A0x5a2ddcaad419acf0!2sTrattoria%20Dam%C3%AC!5e0!3m2!1sit!2sit!4v1715450000000!5m2!1sit!2sit"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
+  <iframe
+    title="Mappa Trattoria Damì"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49110.855999106054!2d11.47233313807452!3d44.24369389524863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132b312ca48e1489%3A0xd3ad2609aef82b18!2sTrattoria%20Dam%C3%AC!5e0!3m2!1sit!2sie!4v1755180816116!5m2!1sit!2sie"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+</div>
+
     </section>
   );
 }

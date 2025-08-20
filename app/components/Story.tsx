@@ -12,7 +12,7 @@ export default function Story() {
       {/* CTA PRENOTA OGGI */}
       <div className="flex justify-center mb-16">
         <Link
-          href="#prenota"
+          href="tel:+39054297863"
           className="
             inline-block rounded-full
             bg-[#650602] px-14 py-6

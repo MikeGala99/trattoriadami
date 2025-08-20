@@ -1,15 +1,22 @@
-
 "use client";
 
 import React from "react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-/* placeholder immagini gallery */
+/* immagini gallery */
 const gallery = [
-  "/img/party-1.jpg",
-  "/img/party-2.jpg",
-  "/img/party-3.jpg",
+  "/images/battesimo.webp",
+  "/images/tagliere.webp",
+  "/images/battesimo1.webp",
+  "/images/giochibambini.webp", // puoi aggiungere quante immagini vuoi
+  "/images/giochibambini1.webp",
+  "/images/giochibambini2.webp",
+  "/images/trattoria.webp",
 ];
 
 export default function BaptismsSection() {
@@ -34,7 +41,7 @@ export default function BaptismsSection() {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="#menu"
+              href="/menu"
               className="
                 inline-block rounded
                 bg-[#d9d9d9] text-[#6e5c50]
@@ -45,7 +52,7 @@ export default function BaptismsSection() {
               VEDI MENU
             </Link>
             <Link
-              href="#prenota"
+              href="tel:+39054297863"
               className="
                 inline-block rounded
                 bg-[#d9d9d9] text-[#6e5c50]
@@ -66,61 +73,33 @@ export default function BaptismsSection() {
         </h3>
       </div>
 
-      {/* griglia gallery */}
-      <div className="relative">
-        <div
-          className="
-            container mx-auto max-w-screen-xl px-6
-            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6
-          "
+      {/* carosello swiper */}
+      <div className="container mx-auto max-w-screen-xl px-6 pb-16">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="[--swiper-navigation-color:#fff] [--swiper-pagination-color:#fff]"
+
         >
           {gallery.map((src, i) => (
-            <div
-              key={i}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg shadow"
-            >
-              <img
-                src={src}
-                alt={`Gallery ${i + 1}`}
-                className="h-full w-full object-cover"
-              />
-              <span
-                className="
-                  absolute inset-0 m-auto
-                  flex h-12 w-12 items-center justify-center
-                  rounded-full border border-white/80
-                  bg-white/10 backdrop-blur-[2px]
-                "
-              >
-                <ChevronRight className="h-5 w-5 text-white" />
-              </span>
-            </div>
+            <SwiperSlide key={i}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow">
+                <img
+                  src={src}
+                  alt={`Gallery ${i + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
-
-        {/* frecce decorative desktop */}
-        <button
-          aria-label="scorri indietro"
-          className="
-            hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2
-            h-12 w-12 items-center justify-center
-            rounded-full bg-[#c2953e] text-[#f1ede0]
-            hover:bg-[#d0a950] transition
-          "
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        <button
-          aria-label="scorri avanti"
-          className="
-            hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2
-            h-12 w-12 items-center justify-center
-            rounded-full bg-[#c2953e] text-[#f1ede0]
-            hover:bg-[#d0a950] transition
-          "
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
+        </Swiper>
       </div>
     </section>
   );

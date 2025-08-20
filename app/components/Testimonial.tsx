@@ -85,7 +85,7 @@ export default function Testimonials() {
       {/* CTA */}
       <div className="flex justify-center mt-16">
         <Link
-          href="#prenota"
+          href="tel:+39054297863"
           className="
             inline-block rounded-full
             bg-[#650602] px-14 py-6

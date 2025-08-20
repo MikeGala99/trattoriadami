@@ -6,12 +6,14 @@
 import React from "react";
 import Link from "next/link";
 
-// dati “eventi” — se servono altre label basta aggiungerle qui
+
+
+// dati “eventi” con label e link dedicato
 const eventTypes = [
-  "CENE AZIENDALI",
-  "MATRIMONI",
-  "BATTESIMI, COMUNIONI E CRESIME",
-  "COMPLEANNI, LAUREE, EVENTI",
+  { label: "CENE AZIENDALI", link: "/eventi/cene-aziendali" },
+  { label: "MATRIMONI", link: "/eventi/matrimoni" },
+  { label: "BATTESIMI, COMUNIONI E CRESIME", link: "/eventi/battesimi-comunioni-e-cresime" },
+  { label: "COMPLEANNI, LAUREE, EVENTI", link: "/eventi/compleanni-e-lauree" },
 ];
 
 export default function EventsAndHours() {
@@ -32,9 +34,9 @@ export default function EventsAndHours() {
         {/* bottoni evento */}
         <ul className="space-y-4">
           {eventTypes.map((ev) => (
-            <li key={ev}>
+            <li key={ev.label}>
               <Link
-                href="#contatti" /* oppure una route dedicata */
+                href={ev.link}
                 className="
                   block text-center
                   bg-[#c2953e] hover:bg-[#cca753]
@@ -44,12 +46,15 @@ export default function EventsAndHours() {
                   transition
                 "
               >
-                {ev}
+                {ev.label}
               </Link>
             </li>
           ))}
         </ul>
       </div>
+
+      {/* ───────────────────────────*
+
 
       {/* ─────────────────────────── Immagine bar (angolo in alto a destra) */}
       <div className="relative h-72 lg:h-auto">

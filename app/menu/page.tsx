@@ -147,14 +147,14 @@ export default function MenuPage() {
       <div className="mt-10 bg-[#650602] py-4 text-center text-[#f1ede0] text-sm px-4">
         Seguici sui nostri social&nbsp;
         <Link
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/trattoriadamiitalia/"
           className="underline underline-offset-4"
         >
           @trattoriadamitalia
         </Link>
         &nbsp;•&nbsp;
         <Link
-          href="https://www.facebook.com/"
+          href="https://www.facebook.com/trattoriadamiitalia"
           className="underline underline-offset-4"
         >
           Trattoria Damì

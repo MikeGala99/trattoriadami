@@ -92,3 +92,15 @@
 .path-card:hover {
   transform: translateY(-5px);
 }
+
+
+:root {
+  --swiper-navigation-color: #fff;
+  --swiper-pagination-color: #fff; /* se vuoi bianchi anche i pallini */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff !important;
+}
+

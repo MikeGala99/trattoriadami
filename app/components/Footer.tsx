@@ -39,9 +39,9 @@ export default function SiteFooter() {
 
             <div className="flex justify-end gap-4">
               {[
-                { icon: <Facebook className="h-6 w-6" />, href: "#" },
-                { icon: <Instagram className="h-6 w-6" />, href: "#" },
-                { icon: <MapPin className="h-6 w-6" />, href: "#" },
+                { icon: <Facebook className="h-6 w-6" />, href: "https://www.facebook.com/trattoriadamiitalia" },
+                { icon: <Instagram className="h-6 w-6" />, href: "https://www.instagram.com/trattoriadamiitalia/" },
+                { icon: <MapPin className="h-6 w-6" />, href: "https://maps.app.goo.gl/X7c62puSNu4HqoxG9" },
               ].map((s, i) => (
                 <Link
                   key={i}

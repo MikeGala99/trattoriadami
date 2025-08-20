@@ -49,7 +49,7 @@ export default function MenuPreview() {
 
         {/* CTA */}
         <Link
-          href="#menu"
+          href="menu"
           className="
             shrink-0
             rounded-full

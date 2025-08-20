@@ -1,7 +1,3 @@
-/* ────────────────────────────────────────────────
-   app/components/NavBar.tsx – Trattoria Damì
-   Colori:  bg #6e5c50  •  testo #f1ede0  •  hover #c2953e
-─────────────────────────────────────────────────*/
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -9,7 +5,6 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-/*  Voci di menu  */
 const navItems = [
   { label: "MENU", href: "/menu" },
   { label: "LA CANTINA", href: "/la-cantina" },
@@ -32,14 +27,12 @@ export default function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  /* Cambia stile in base allo scroll */
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Chiudi dropdown quando si clicca fuori */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -50,7 +43,6 @@ export default function NavBar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  /* Animazioni */
   const slideIn = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
@@ -70,9 +62,7 @@ export default function NavBar() {
         isScrolled ? "bg-[#6e5c50]/95 shadow-md" : "bg-[#6e5c50]"
       }`}
     >
-      {/* Prima riga: solo logo */}
       <div className="container mx-auto max-w-screen-xl flex items-center justify-center h-20 px-4 lg:px-6">
-        {/* Logo ingrandito */}
         <Link href="/" className="flex items-center">
           <img
             src="https://c.animaapp.com/ma2lcns5bFQT5W/img/dami-blanco-3x-1.png"
@@ -81,7 +71,6 @@ export default function NavBar() {
           />
         </Link>
 
-        {/* ---------- BURGER MOBILE ---------- */}
         <div className="absolute right-4 lg:hidden">
           <button
             onClick={() => setMobileOpen((p) => !p)}
@@ -93,67 +82,65 @@ export default function NavBar() {
         </div>
       </div>
 
-      {/* Seconda riga: menu centrato */}
       <div className={`container mx-auto max-w-screen-xl px-4 lg:px-6 ${isScrolled ? 'py-2' : 'py-3'} hidden lg:block border-t border-[#ffffff22]`}>
         <nav className="flex justify-center gap-10">
           {navItems.map((item) => (
             <div key={item.label} className="relative" ref={item.dropdown ? dropdownRef : undefined}>
               {item.dropdown ? (
-                <>
-                  <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="
-                      text-[#f1ede0] font-serif text-lg flex items-center
-                      hover:text-[#c2953e] transition-colors
-                    "
-                  >
-                    {item.label}
-                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence>
-                    {dropdownOpen && (
-                      <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        exit="hidden"
-                        variants={dropdownVariants}
-                        className="absolute left-0 mt-2 w-64 rounded-md bg-[#6e5c50] shadow-lg border border-[#ffffff22] z-50"
-                      >
-                        <div className="py-1">
-                          {item.dropdown.map((subItem) => (
-                            <Link
-                              key={subItem.href}
-                              href={subItem.href}
-                              className="
-                                block px-4 py-2 text-[#f1ede0] font-serif text-base
-                                hover:bg-[#ffffff11] hover:text-[#c2953e] transition
-                              "
-                            >
-                              {subItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </>
-              ) : (
-                <Link
-                  href={item.href}
-                  className="
-                    text-[#f1ede0] font-serif text-lg
-                    hover:text-[#c2953e] transition-colors
-                  "
-                >
-                  {item.label}
-                </Link>
-              )}
+  <div className="relative" ref={dropdownRef}>
+    <Link
+      href={item.href}
+      className="text-[#f1ede0] font-serif text-lg flex items-center hover:text-[#c2953e] transition-colors"
+    >
+      {item.label}
+      <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+    </Link>
+    <button
+      onClick={() => setDropdownOpen(!dropdownOpen)}
+      aria-expanded={dropdownOpen}
+      aria-label="Apri menu eventi"
+      className="absolute inset-y-0 right-0 px-2 focus:outline-none"
+    >
+      {/* Qui rimuovi il ChevronDown */}
+    </button>
+    <AnimatePresence>
+      {dropdownOpen && (
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={dropdownVariants}
+          className="absolute left-0 mt-2 w-64 rounded-md bg-[#6e5c50] shadow-lg border border-[#ffffff22] z-50"
+        >
+          <div className="py-1">
+            {item.dropdown.map((subItem) => (
+              <Link
+                key={subItem.href}
+                href={subItem.href}
+                className="block px-4 py-2 text-[#f1ede0] font-serif text-base hover:bg-[#ffffff11] hover:text-[#c2953e] transition"
+              >
+                {subItem.label}
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </div>
+) : (
+  <Link
+    href={item.href}
+    className="text-[#f1ede0] font-serif text-lg hover:text-[#c2953e] transition-colors"
+  >
+    {item.label}
+  </Link>
+)}
+
             </div>
           ))}
         </nav>
       </div>
 
-      {/* ---------- MOBILE PANEL ---------- */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -173,13 +160,7 @@ export default function NavBar() {
                 >
                   {item.dropdown ? (
                     <>
-                      <div
-                        className="
-                          block w-full px-6 py-3 text-[#f1ede0] font-serif
-                          flex justify-between items-center
-                          hover:bg-[#ffffff11] hover:text-[#c2953e] transition
-                        "
-                      >
+                      <div className="block w-full px-6 py-3 text-[#f1ede0] font-serif flex justify-between items-center hover:bg-[#ffffff11] hover:text-[#c2953e] transition">
                         <Link href={item.href}>{item.label}</Link>
                       </div>
                       <div className="pl-8 border-l border-[#ffffff22] ml-10">
@@ -188,10 +169,7 @@ export default function NavBar() {
                             key={subItem.href}
                             href={subItem.href}
                             onClick={() => setMobileOpen(false)}
-                            className="
-                              block w-full px-6 py-2 text-[#f1ede0] font-serif text-sm
-                              hover:bg-[#ffffff11] hover:text-[#c2953e] transition
-                            "
+                            className="block w-full px-6 py-2 text-[#f1ede0] font-serif text-sm hover:bg-[#ffffff11] hover:text-[#c2953e] transition"
                           >
                             {subItem.label}
                           </Link>
@@ -202,10 +180,7 @@ export default function NavBar() {
                     <Link
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="
-                        block w-full px-6 py-3 text-[#f1ede0] font-serif
-                        hover:bg-[#ffffff11] hover:text-[#c2953e] transition
-                      "
+                      className="block w-full px-6 py-3 text-[#f1ede0] font-serif hover:bg-[#ffffff11] hover:text-[#c2953e] transition"
                     >
                       {item.label}
                     </Link>
