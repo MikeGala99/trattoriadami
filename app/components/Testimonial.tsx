@@ -11,15 +11,23 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 /* ↘︎ immagini/recensioni da far scorrere */
 const reviews = [
   {
-    src: "/img/review-01.png", // carica il PNG della slide che hai mostrato
-    alt: "Recensione Google • Marco Barbieri",
+    src: "/images/recensone1.webp", // carica il PNG della slide che hai mostrato
+    alt: "Recensione Google • Eli Leo",
   },
   {
-    src: "/img/review-02.png",
+    src: "/images/recensione2.webp",
     alt: "Recensione Google • Laura Rossi",
   },
   {
-    src: "/img/review-03.png",
+    src: "/images/recensone3.webp",
+    alt: "Recensione Google • Gianluca Verdi",
+  },
+  {
+    src: "/images/recensione4.webp",
+    alt: "Recensione Google • Gianluca Verdi",
+  },
+   {
+    src: "/images/recensione5.webp",
     alt: "Recensione Google • Gianluca Verdi",
   },
 ];

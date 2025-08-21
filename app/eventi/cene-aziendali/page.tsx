@@ -30,12 +30,15 @@ export default function BusinessDinnersSection() {
             CENE AZIENDALI
           </h2>
 
-          <div className="max-w-2xl mx-auto text-center">
-  <p className="[font-family:'Lora',Helvetica] text-sm sm:text-base leading-relaxed">
-    Compleanni, feste di laurea o semplicemente voglia di stare insieme: ogni scusa è buona per fare festa da noi. Potete scegliere tra il nostro giardino estivo e le sale interne, allestite secondo i vostri desideri. Offriamo menù flessibili, pizza a volontà, vini locali e tutta la gioia che si respira in una vera trattoria di confine. Musica, decorazioni, torta: pensiamo a tutto insieme a voi. Voi portate la voglia di festeggiare, noi ci mettiamo il resto.
-  </p>
-</div>
-
+          <p className="[font-family:'Lora',Helvetica] text-sm sm:text-base leading-relaxed">
+            Siete un team affiatato o un gruppo appena formato? In ogni caso,
+            qui troverete l’atmosfera giusta per rilassarvi, conoscervi meglio e
+            gustare una cena che mette d’accordo tutti. Proponiamo menù su
+            misura, pizze cotte nel forno a legna e piatti della tradizione
+            tosco-emiliana. Ampi spazi e possibilità di riservare sale vi
+            permettono di vivere la serata con riservatezza. E se la serata si
+            fa lunga… abbiamo anche camere comode per il pernottamento.
+          </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
