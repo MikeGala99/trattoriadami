@@ -8,16 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "MENU", href: "/menu" },
   { label: "LA CANTINA", href: "/la-cantina" },
-  { 
-    label: "EVENTI", 
-    href: "/eventi",
-    dropdown: [
-      { label: "Battesimi, Comunioni e Cresime", href: "/eventi/battesimi-comunioni-e-cresime" },
-      { label: "Compleanni e Lauree", href: "/eventi/compleanni-e-lauree" },
-      { label: "Cene Aziendali", href: "/eventi/cene-aziendali" },
-      { label: "Matrimoni", href: "/eventi/matrimoni" },
-    ]
-  },
+  { label: "EVENTI", href: "/eventi" },
+
   { label: "CONTATTI E ORARI", href: "/contatti-e-orari" },
 ];
 
