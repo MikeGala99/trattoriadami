@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import React from "react";
 import { Lora } from "next/font/google";
 import NavBar from "./components/NavBar";
+import InstagramBanner from "./components/InstagramBanner";
 import Footer from "./components/Footer";
 
 // Font optimization 
@@ -40,12 +41,13 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col">
         {/* Header con navigazione principale */}
         <NavBar />
-        
+        <InstagramBanner instagramUrl="https://www.instagram.com/trattoriadamiitalia/" />
+
         {/* Contenuto principale - cresce per spingere il footer verso il basso */}
         <main className="flex-grow flex flex-col gap-16 md:gap-24 py-8 md:py-12">
           {children}
         </main>
-        
+
         {/* Footer con informazioni di contatto e copyright */}
         <Footer />
       </body>
